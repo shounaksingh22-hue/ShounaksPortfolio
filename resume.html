@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shounak Singh — Résumé</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:     oklch(96.5% 0.010 78);
+  --bg2:    oklch(93%   0.010 78);
+  --border: oklch(87%   0.010 78);
+  --text:   oklch(16%   0.008 258);
+  --muted:  oklch(50%   0.008 258);
+  --faint:  oklch(70%   0.006 258);
+  --accent: oklch(62%   0.20  48);
+  --sans:   'Space Grotesk', system-ui, sans-serif;
+  --mono:   'DM Mono', monospace;
+  --serif:  'DM Serif Display', Georgia, serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── TOP BAR ── */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: oklch(96.5% 0.010 78 / 0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.topbar-back {
+  display: flex; align-items: center; gap: 7px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 1px;
+  color: var(--muted); text-decoration: none; text-transform: uppercase;
+  transition: color .15s;
+}
+.topbar-back:hover { color: var(--accent); text-decoration: none; }
+.topbar-back svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.topbar-name { font-family: var(--mono); font-size: 12px; color: var(--faint); letter-spacing: .5px; }
+
+/* ── PAGE ── */
+.page {
+  max-width: 780px;
+  margin: 56px auto 80px;
+  padding: 0 32px;
+}
+
+/* ── HEADER ── */
+.r-header { margin-bottom: 44px; padding-bottom: 36px; border-bottom: 1px solid var(--border); }
+.r-name {
+  font-family: var(--serif);
+  font-size: clamp(32px, 5vw, 52px);
+  letter-spacing: -2px;
+  line-height: 1.05;
+  margin-bottom: 10px;
+}
+.r-tagline {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 22px;
+}
+.r-contact-row {
+  display: flex; flex-wrap: wrap; gap: 10px 20px;
+  font-family: var(--mono); font-size: 11px; color: var(--muted);
+}
+.r-contact-row a { color: var(--muted); }
+.r-contact-row a:hover { color: var(--accent); text-decoration: none; }
+.r-contact-row span { display: flex; align-items: center; gap: 5px; }
+.r-contact-row svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+/* ── SECTIONS ── */
+.r-section { margin-bottom: 44px; }
+.r-section-label {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 18px;
+  display: flex; align-items: center; gap: 10px;
+}
+.r-section-label::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+
+/* ── JOB ── */
+.r-job { margin-bottom: 28px; }
+.r-job-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
+.r-job-title { font-size: 16px; font-weight: 600; letter-spacing: -.3px; }
+.r-job-period { font-family: var(--mono); font-size: 10px; color: var(--faint); white-space: nowrap; }
+.r-job-org { font-family: var(--mono); font-size: 11px; color: var(--accent); margin-bottom: 10px; }
+.r-job ul { padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.r-job li { font-size: 13.5px; color: var(--muted); line-height: 1.7; padding-left: 16px; position: relative; text-wrap: pretty; }
+.r-job li::before { content: '—'; position: absolute; left: 0; color: var(--faint); }
+
+/* ── EDU ── */
+.r-edu { margin-bottom: 20px; }
+.r-edu-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+.r-edu-school { font-size: 16px; font-weight: 600; letter-spacing: -.3px; }
+.r-edu-period { font-family: var(--mono); font-size: 10px; color: var(--faint); }
+.r-edu-deg { font-family: var(--mono); font-size: 11px; color: var(--accent); margin: 3px 0 6px; }
+.r-edu-note { font-size: 13px; color: var(--muted); }
+
+/* ── SKILLS GRID ── */
+.r-skills-grid { display: flex; flex-wrap: wrap; gap: 7px; }
+.r-skill-tag {
+  padding: 5px 13px; border: 1px solid var(--border); border-radius: 5px;
+  font-family: var(--mono); font-size: 11px; color: var(--muted);
+  background: var(--bg2);
+}
+
+/* ── LINKS ROW ── */
+.r-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+.r-link-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 7px 16px; border: 1px solid var(--border); border-radius: 6px;
+  font-family: var(--mono); font-size: 11px; color: var(--muted);
+  background: var(--bg2); transition: border-color .15s, color .15s;
+  text-decoration: none;
+}
+.r-link-badge:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.r-link-badge svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+@media print {
+  .topbar { display: none; }
+  .page { margin-top: 20px; }
+}
+@media (max-width: 600px) {
+  .topbar { padding: 12px 20px; }
+  .page { padding: 0 20px; margin-top: 36px; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="topbar-back" href="index.html">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Back to portfolio
+  </a>
+  <span class="topbar-name">shounak singh — résumé</span>
+</div>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="r-header">
+    <div class="r-name">Shounak Singh</div>
+    <div class="r-tagline">Product Design · Automation · Systems Architecture · Microsoft Power Platform</div>
+    <div class="r-contact-row">
+      <span>
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Jersey City, NJ
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.09-1.09a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:+14193203851">+1 (419) 320-3851</a>
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        <a href="mailto:shounaksingh22@gmail.com">shounaksingh22@gmail.com</a>
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <a href="https://www.linkedin.com/in/shounak-singh-6a75441b8/" target="_blank" rel="noopener">LinkedIn</a>
+      </span>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="r-section">
+    <div class="r-section-label">Professional Experience</div>
+
+    <div class="r-job">
+      <div class="r-job-head">
+        <div class="r-job-title">Digital Systems Analyst</div>
+        <div class="r-job-period">Aug 2022 – Aug 2025</div>
+      </div>
+      <div class="r-job-org">Dassault Falcon Jet · Little Ferry, NJ</div>
+      <ul>
+        <li>Architected enterprise-wide Power BI dashboards integrating QlikSense and internal systems into Command Center screens, reducing manual reporting by 30%+ and accelerating executive decision-making.</li>
+        <li>Built SAP-integrated warehouse automation using VBS scripting and Power Automate, converting barcode generation into a one-click workflow, saving 52+ hours annually and improving inventory accuracy.</li>
+        <li>Led tester group and provided business requirements to IBM developers for the FalconSpares web upgrade.</li>
+        <li>Developed Power Automate AI-integrated workflows to classify 20+ daily customer flight reports and route inquiries to the correct departments, reducing response delays and improving cross-team accountability.</li>
+        <li>Re-engineered a 20-year legacy receipt system by building a structured Microsoft Access database managing 75,000+ records, automating billing logic and receipt generation, and eliminating recurring calculation errors.</li>
+        <li>Delivered Power Platform training to 250+ employees and led pre-deployment testing for a secure global laptop rollout across the US, Europe, Australia, and Asia with zero downtime.</li>
+      </ul>
+    </div>
+
+    <div class="r-job">
+      <div class="r-job-head">
+        <div class="r-job-title">Product Intern</div>
+        <div class="r-job-period">Jul 2020 – Dec 2020</div>
+      </div>
+      <div class="r-job-org">TaxGenie</div>
+      <ul>
+        <li>Collaborated with product and engineering teams to streamline SaaS compliance workflows and document feature logic, improving release readiness and regulatory accuracy.</li>
+        <li>Supported end-to-end feature testing and user requirement analysis for automation enhancements, strengthening system reliability and accelerating deployment readiness across client-facing modules.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- LEADERSHIP -->
+  <div class="r-section">
+    <div class="r-section-label">Leadership Experience</div>
+
+    <div class="r-job">
+      <div class="r-job-head">
+        <div class="r-job-title">Brand Ambassador Manager</div>
+        <div class="r-job-period">Jan 2022 – May 2022</div>
+      </div>
+      <div class="r-job-org">Ruffalo Noel Levitz</div>
+      <ul>
+        <li>Managed student ambassador operations using a CRM-driven engagement strategy, implementing structured communication and performance tracking to strengthen fundraising initiatives.</li>
+      </ul>
+    </div>
+
+    <div class="r-job">
+      <div class="r-job-head">
+        <div class="r-job-title">Team Lead</div>
+        <div class="r-job-period">Jan 2021 – Dec 2021</div>
+      </div>
+      <div class="r-job-org">Chick-fil-A</div>
+      <ul>
+        <li>Optimized operational workflows using performance metrics, reducing order fulfilment time by 25% and improving service throughput and operational consistency.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="r-section">
+    <div class="r-section-label">Education</div>
+
+    <div class="r-edu">
+      <div class="r-edu-head">
+        <div class="r-edu-school">Rutgers University</div>
+        <div class="r-edu-period">Sept 2025 – Present</div>
+      </div>
+      <div class="r-edu-deg">Master of Business &amp; Science, Product Design · New Brunswick, NJ</div>
+      <div class="r-edu-note">Led structured product innovation initiatives; built executive-grade Tableau dashboards and UX prototypes using Figma.</div>
+    </div>
+
+    <div class="r-edu">
+      <div class="r-edu-head">
+        <div class="r-edu-school">University of Toledo</div>
+        <div class="r-edu-period">2018 – 2022</div>
+      </div>
+      <div class="r-edu-deg">BBA · Dual Major: Information Systems &amp; Organizational Leadership · Toledo, OH</div>
+      <div class="r-edu-note">GPA: 3.6 / 4.0</div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="r-section">
+    <div class="r-section-label">Skills &amp; Tools</div>
+    <div class="r-skills-grid">
+      <span class="r-skill-tag">Power BI</span>
+      <span class="r-skill-tag">Power Automate</span>
+      <span class="r-skill-tag">Power Apps</span>
+      <span class="r-skill-tag">Figma</span>
+      <span class="r-skill-tag">Tableau</span>
+      <span class="r-skill-tag">QlikSense</span>
+      <span class="r-skill-tag">SAP</span>
+      <span class="r-skill-tag">MS Access</span>
+      <span class="r-skill-tag">SQL</span>
+      <span class="r-skill-tag">VBS Scripting</span>
+      <span class="r-skill-tag">Salesforce</span>
+      <span class="r-skill-tag">IBM Systems</span>
+      <span class="r-skill-tag">Microsoft 365</span>
+      <span class="r-skill-tag">AI Workflow Integration</span>
+      <span class="r-skill-tag">UX Research</span>
+      <span class="r-skill-tag">Agile</span>
+    </div>
+  </div>
+
+  <!-- LINKS -->
+  <div class="r-section">
+    <div class="r-section-label">Profiles &amp; Portfolios</div>
+    <div class="r-links">
+      <a class="r-link-badge" href="https://www.linkedin.com/in/shounak-singh-6a75441b8/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="r-link-badge" href="https://public.tableau.com/app/profile/shounak.singh/vizzes" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        Tableau Dashboards
+      </a>
+      <a class="r-link-badge" href="https://www.salesforce.com/trailblazer/mhj95t1xwd15obryk0" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+        Trailhead Profile
+      </a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
